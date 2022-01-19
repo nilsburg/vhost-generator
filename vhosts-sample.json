@@ -1,0 +1,7 @@
+{
+	"webroot":"/var/www/sites",
+	"vhosts":[
+		{"name":"mi-proyecto","project_path":"/cliente/proyecto/webspace", "server_name":"miproyecto.localhost.test"},
+		{"name":"mi-otro-proyecto","project_path":"/cliente/otro-proyecto/web", "server_name":"otro-proyecto.localhost.test", "php_version":"7.2", "ssl":true, "tld":"localhost.test"}	
+	]
+}
