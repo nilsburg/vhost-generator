@@ -8,15 +8,18 @@ apt install -y jq dkms
 
 ### SSL Certificates
 The SSL certificates are generated using a self signed CA certificate, to create one, follow this steps:
-````bash
+```bash
 openssl ecparam -name prime256v1 -genkey -noout -out ca-development.key
 ```
-Gerneate CRT file to import into Windows and PEM file for Ubuntu
+
+Generate CRT file to import into Windows and PEM file for Ubuntu
+
 ```bash
 openssl req -new -x509 -sha256 -key ca-development.key -out ca-development.crt
 #GENERATE PEM file
 openssl req -x509 -new -nodes -key ca-development.key -sha256 -days 1825 -out ca-development.pem
-````
+```
+
 Once generated copy __ca-development.pem__ to __/etc/ssl/certs__
 ```bash
 cp ca-development.pem /etc/ssl/certs
@@ -24,7 +27,7 @@ cp ca-development.pem /etc/ssl/certs
 Then run ```sudo c_rehash```
 
 ## 2. Install multiple PHP versions
-This will install PHP 5.6 and PHP 7.2
+Install PHP 5.6 and PHP 7.2
 ```bash
 sudo apt update
 sudo apt install libapache2-mod-fcgid
@@ -32,7 +35,7 @@ sudo apt install software-properties-common
 sudo add-apt-repository ppa:ondrej/php && sudo apt update
 sudo apt install -y libapache2-mod-fcgid php5.6 php5.6-fpm php7.2 php7.2-fpm php5.6-mysql php7.2-mysql php5.6-curl php7.2-curl php5.6-mbstring nodejs php5.6-xml php5.6-dom
 sudo a2enmod actions alias proxy_fcgi fcgid rewrite
-sudo systemctl restart apache2
+sudo service apache2 restart
 ```
 
 ### Virtual Hosts
