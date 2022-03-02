@@ -15,9 +15,11 @@ openssl ecparam -name prime256v1 -genkey -noout -out ca-development.key
 Generate CRT file to import into Windows and PEM file for Ubuntu
 
 ```bash
-openssl req -new -x509 -sha256 -key ca-development.key -out ca-development.crt
-#GENERATE PEM file
-openssl req -x509 -new -nodes -key ca-development.key -sha256 -days 1825 -out ca-development.pem
+openssl req -new -x509 -days 1825 -sha256 -key ca-development.key -out ca-development.crt -config ca.cnf
+```
+Generate pem file
+```
+openssl req -x509 -new -nodes -key ca-development.key -sha256 -days 1825 -out ca-development.pem -config ca.cnf
 ```
 
 Once generated copy __ca-development.pem__ to __/etc/ssl/certs__

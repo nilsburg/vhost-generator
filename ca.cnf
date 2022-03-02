@@ -1,0 +1,14 @@
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+distinguished_name = dn
+
+[dn]
+C=ES
+ST=Madrid
+L=Madrid
+O=Development CA
+OU=Development CA
+emailAddress=devel@example.org
+CN = Development CA
